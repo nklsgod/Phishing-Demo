@@ -1,0 +1,23 @@
+{
+  "_hinweis": "Nur oeffentlich einsehbare Daten. Passe die Felder an deine eigene JSON an. Das Skript liest die Liste 'companies'.",
+  "companies": [
+    {
+      "name": "Muster Maschinenbau GmbH",
+      "domain": "muster-maschinenbau.de",
+      "branche": "Maschinenbau / Industrieautomation",
+      "standort": "Gießen",
+      "eingesetzte_tools": ["Microsoft 365", "SAP", "DocuSign"],
+      "aktuelle_nachricht": "Eroeffnung eines neuen Werks in Gießen im Herbst 2026 (Pressemitteilung).",
+      "gespoofter_absender": "IT-Support <it-support@muster-maschinenbau.de>"
+    },
+    {
+      "name": "Beispiel Logistik AG",
+      "domain": "beispiel-logistik.de",
+      "branche": "Logistik / Supply Chain",
+      "standort": "Frankfurt am Main",
+      "eingesetzte_tools": ["Microsoft 365", "Workday"],
+      "aktuelle_nachricht": "Uebernahme eines Wettbewerbers angekuendigt (Handelsblatt).",
+      "gespoofter_absender": "HR / Personalabteilung <hr@beispiel-logistik.de>"
+    }
+  ]
+}
