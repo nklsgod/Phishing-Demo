@@ -1,23 +1,28 @@
 {
-  "_hinweis": "Nur oeffentlich einsehbare Daten. Passe die Felder an deine eigene JSON an. Das Skript liest die Liste 'companies'.",
+  "_hinweis": "Nur oeffentlich einsehbare Daten. Der 'gespoofter_absender' nutzt bewusst eine Look-alike-Domain (NICHT die echte kfw.de), damit die Awareness-Analyse das Warnsignal 'falsche Domain' zeigen kann. 'fuehrung' ermoeglicht einen Autoritaets-/CEO-Fraud-Pretext.",
   "companies": [
     {
-      "name": "Muster Maschinenbau GmbH",
-      "domain": "muster-maschinenbau.de",
-      "branche": "Maschinenbau / Industrieautomation",
-      "standort": "Gießen",
-      "eingesetzte_tools": ["Microsoft 365", "SAP", "DocuSign"],
-      "aktuelle_nachricht": "Eroeffnung eines neuen Werks in Gießen im Herbst 2026 (Pressemitteilung).",
-      "gespoofter_absender": "IT-Support <it-support@muster-maschinenbau.de>"
-    },
-    {
-      "name": "Beispiel Logistik AG",
-      "domain": "beispiel-logistik.de",
-      "branche": "Logistik / Supply Chain",
-      "standort": "Frankfurt am Main",
-      "eingesetzte_tools": ["Microsoft 365", "Workday"],
-      "aktuelle_nachricht": "Uebernahme eines Wettbewerbers angekuendigt (Handelsblatt).",
-      "gespoofter_absender": "HR / Personalabteilung <hr@beispiel-logistik.de>"
+      "name": "KfW (Kreditanstalt für Wiederaufbau)",
+      "domain": "kfw.de",
+      "branche": "Förderbank / Finanzwesen (öffentlich-rechtlich, reguliertes Umfeld)",
+      "standort": "Frankfurt am Main (Hauptsitz), Berlin, Bonn",
+      "eingesetzte_tools": [
+        "Microsoft 365",
+        "Microsoft Entra ID",
+        "Microsoft Defender XDR",
+        "Microsoft Defender for Identity",
+        "Zero-Trust-Architektur",
+        "SIEM/SOC"
+      ],
+      "aktuelle_nachricht": "Die Abteilung IT-Security modernisiert das Identity & Access Management: Rollout von Microsoft Defender for Identity und Migration der Entra-ID-Konten auf neue Sicherheitsrichtlinien. Parallel treibt die KfW ihre agile digitale Transformation als Förderbank voran.",
+      "gespoofter_absender": "KfW IT-Security & IAM <it-security@kfw-sicherheitsportal.de>",
+      "fuehrung": [
+        { "name": "Stefan Wintels", "funktion": "Vorstandsvorsitzender, u. a. Konzernsteuerung" },
+        { "name": "Melanie Kehr", "funktion": "Vorstand, u. a. Informationstechnologie und Operations, inländisches Fördergeschäft" },
+        { "name": "Bernd Loewen", "funktion": "Vorstand, u. a. Rechnungswesen, Organisation und Personal" },
+        { "name": "Dr. Stefan Peiß", "funktion": "Vorstand, u. a. Risikomanagement und -controlling" },
+        { "name": "Brigitte Réthier", "funktion": "Vorstand, u. a. Internationale Finanzielle Zusammenarbeit" }
+      ]
     }
   ]
 }
