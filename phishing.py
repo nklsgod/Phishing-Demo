@@ -29,6 +29,11 @@ import time
 import html
 import json
 import datetime
+import base64
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from email.utils import formatdate, make_msgid, formataddr
 
 try:
     import requests
@@ -47,6 +52,8 @@ ENDPOINT = os.environ.get(
 )
 COMPANY_FILE = os.environ.get("COMPANY_DATA_FILE", "beispiel_firmendaten.json")
 HTML_OUT     = os.environ.get("HTML_OUT", "phishing_demo_ausgabe.html")
+EML_OUT      = os.environ.get("EML_OUT", "phishing_demo_mail.eml")
+TEST_RECIPIENT = os.environ.get("TEST_RECIPIENT", "")   # optionale Vorbelegung An:
 _SCOPE       = "https://cognitiveservices.azure.com/.default"
 
 # --- Corporate Identity (KfW) ---
@@ -225,10 +232,15 @@ OEFFENTLICHE FIRMENDATEN:
 - Aktueller Anlass/Nachricht: {anlass}
 - Vorgetaeuschter Absender: {absender}
 
+FUEHRUNGSKRAEFTE (oeffentlich; optional fuer einen Autoritaets-Pretext):
+{fuehrung}
+
 Leite Name, Vorname, Rolle, Arbeitgeber und fachliche Schwerpunkte aus dem
 Profil ab. Nutze konkrete Details (genutzte Technologien, Projekte, Team) fuer
 maximale Personalisierung sowie den aktuellen Anlass fuer Glaubwuerdigkeit
-(Pretext, Autoritaet, Dringlichkeit). Baue einen klaren Handlungsaufruf mit einer
+(Pretext, Autoritaet, Dringlichkeit). Du kannst optional passend zur Zielperson
+eine der genannten Fuehrungskraefte als Autoritaet referenzieren (z.B. im Auftrag/
+im Namen), sofern das glaubwuerdig ist. Baue einen klaren Handlungsaufruf mit einer
 OFFENSICHTLICH gefaelschten Platzhalter-URL ein.
 
 Antworte EXAKT in diesem JSON-Schema (deutsche Inhalte):
@@ -509,6 +521,59 @@ def build_outlook_html(mail, analyse, brand_name, gen_seconds):
     return PAGE_TEMPLATE.replace("__DEMO_JSON__", blob)
 
 
+def build_email_body_html(mail):
+    """Sauberer HTML-Body fuer die echte E-Mail (Inline-Styles, Logo via cid)."""
+    von  = html.escape(str(mail.get("von_name", "KfW IT-Security")))
+    text = html.escape(str(mail.get("text", ""))).replace("\n", "<br>")
+    cta  = html.escape(str(mail.get("cta", "Jetzt bestaetigen")))
+    url  = html.escape(str(mail.get("fake_url", "")))
+    a = BRAND_COLOR
+    return (
+        '<html><body style="margin:0;padding:0;background:#f3f4f6;">'
+        '<div style="max-width:640px;margin:0 auto;background:#ffffff;'
+        'font-family:Segoe UI,Arial,sans-serif;color:#201f1e;">'
+        '<div style="border-bottom:3px solid ' + a + ';padding:14px 22px;">'
+        '<img src="cid:kfwlogo" alt="' + html.escape(BRAND_NAME) + '" style="height:30px;"></div>'
+        '<div style="padding:22px;line-height:1.6;font-size:15px;">' + text +
+        '<div style="margin:18px 0 4px;"><a href="' + url + '" '
+        'style="background:' + a + ';color:#ffffff;text-decoration:none;padding:11px 22px;'
+        'border-radius:6px;font-weight:600;display:inline-block;">' + cta + '</a></div>'
+        '</div></div></body></html>'
+    )
+
+
+def write_eml(mail, path):
+    """Schreibt die generierte Mail als .eml (in Outlook oeffnen und versenden)."""
+    von_name = str(mail.get("von_name", "KfW IT-Security"))
+    von_mail = str(mail.get("von_mail", "")) or "it-security@kfw-sicherheitsportal.de"
+
+    root = MIMEMultipart("related")
+    root["Subject"] = str(mail.get("betreff", "(kein Betreff)"))
+    root["From"] = formataddr((von_name, von_mail))
+    if TEST_RECIPIENT:
+        root["To"] = TEST_RECIPIENT
+    root["Date"] = formatdate(localtime=True)
+    root["Message-ID"] = make_msgid(domain="kfw-sicherheitsportal.de")
+
+    alt = MIMEMultipart("alternative")
+    alt.attach(MIMEText(str(mail.get("text", "")), "plain", "utf-8"))
+    alt.attach(MIMEText(build_email_body_html(mail), "html", "utf-8"))
+    root.attach(alt)
+
+    try:
+        b64 = LOGO_DATA_URI.split(",", 1)[1]
+        img = MIMEImage(base64.b64decode(b64), _subtype="png")
+        img.add_header("Content-ID", "<kfwlogo>")
+        img.add_header("Content-Disposition", "inline", filename="logo.png")
+        root.attach(img)
+    except Exception:
+        pass
+
+    with open(path, "wb") as f:
+        f.write(root.as_bytes())
+    return path
+
+
 def show_html(html_str):
     with open(HTML_OUT, "w", encoding="utf-8") as f:
         f.write(html_str)
@@ -544,8 +609,11 @@ def main():
         print("\nKein Profil eingegeben -> Abbruch."); return
 
     banner("GENERIERE MAIL (KI arbeitet) ...", "-")
+    fuehrung_txt = "\n".join(
+        f"- {m.get('name','')} — {m.get('funktion','')}" for m in firma.get("fuehrung", [])
+    ) or "-"
     user_prompt = USER_PROMPT_TEMPLATE.format(
-        profil=profil,
+        profil=profil, fuehrung=fuehrung_txt,
         firma_name=firma.get("name", "-"), branche=firma.get("branche", "-"),
         standort=firma.get("standort", "-"),
         tools=", ".join(firma.get("eingesetzte_tools", [])) or "-",
@@ -581,6 +649,9 @@ def main():
         print(f"\n{C.YEL}Link (nicht klickbar):{C.R} {mail['fake_url']}")
 
     show_html(build_outlook_html(mail, analyse, firma.get("name", BRAND_NAME), gen_seconds))
+    eml = write_eml(mail, EML_OUT)
+    print(f"{C.CY}EML-Datei (in Outlook oeffnen und an das Testkonto senden):{C.R} "
+          f"{os.path.abspath(eml)}")
     banner("ENDE DER DEMO  --  keine Daten gespeichert, nichts versendet")
 
 
