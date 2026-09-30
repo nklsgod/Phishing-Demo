@@ -1,28 +1,101 @@
 {
-  "_hinweis": "Nur oeffentlich einsehbare Daten. Der 'gespoofter_absender' nutzt bewusst eine Look-alike-Domain (NICHT die echte kfw.de), damit die Awareness-Analyse das Warnsignal 'falsche Domain' zeigen kann. 'fuehrung' ermoeglicht einen Autoritaets-/CEO-Fraud-Pretext.",
+  "_hinweis": "Nur oeffentlich einsehbare Daten (KfW-Newsroom, kfw.de, KfW IPEX-Bank/Entwicklungsbank). Das Standard-Skript liest: name, branche, standort, eingesetzte_tools, aktuelle_nachricht, gespoofter_absender, fuehrung. Damit die Zielgruppen-/Auslandsbuero-Ausrichtung OHNE Skript-Aenderung beim Modell ankommt, ist sie in 'aktuelle_nachricht' eingearbeitet. Die Felder unternehmensprofil/aktuelle_themen/auslandsbueros/zielgruppen/absender_varianten/kontext dienen als Doku und werden vom Standard-Skript ignoriert. 'gespoofter_absender' nutzt bewusst eine Look-alike-Domain (NICHT kfw.de). Nur fuer autorisierte Awareness-Demo mit Einwilligung.",
   "companies": [
     {
       "name": "KfW (Kreditanstalt für Wiederaufbau)",
       "domain": "kfw.de",
-      "branche": "Förderbank / Finanzwesen (öffentlich-rechtlich, reguliertes Umfeld)",
-      "standort": "Frankfurt am Main (Hauptsitz), Berlin, Bonn",
+      "branche": "Förderbank / Finanzwesen (öffentlich-rechtlich, stark reguliert; Bankengruppe mit KfW IPEX-Bank, KfW Entwicklungsbank und DEG)",
+      "standort": "Frankfurt am Main (Hauptsitz), Berlin, Bonn – weltweit vertreten über Außenbüros/Repräsentanzen",
+      "unternehmensprofil": "Größte nationale Förderbank; finanziert im Auftrag von Bund und Ländern Vorhaben in Wirtschaft, Bauen/Wohnen, Bildung, Umwelt/Klima sowie internationale Entwicklungs- und Projektfinanzierung. Keine Filialen, keine Endkundeneinlagen – Refinanzierung über den Kapitalmarkt.",
+      "aktuelle_themen": [
+        "KfW richtet ihr Fördergeschäft strategisch neu aus (Jahresauftakt-Pressekonferenz)",
+        "Refinanzierungsziel 2026 auf rund 80–85 Mrd. EUR erhöht",
+        "Starkes erstes Halbjahr 2026 / Rekordwachstum im Kerngeschäft",
+        "Green Bonds über Erwartungen; Digitalisierung der Refinanzierung schreitet voran",
+        "IT-Security & IAM-Modernisierung: Rollout Microsoft Defender for Identity, Migration der Entra-ID-Konten auf neue Sicherheitsrichtlinien",
+        "Agile digitale Transformation der Bank-IT (moderne Infrastruktur, Cloud, Automatisierung)"
+      ],
+      "aktuelle_nachricht": "AKTUELLE LAGE: Die KfW migriert derzeit alle Microsoft-365-/Entra-ID-Konten auf neue Sicherheitsrichtlinien (Rollout Microsoft Defender for Identity, verschaerfte MFA-/Conditional-Access-Regeln); zugleich Rekord-Halbjahr 2026 und strategische Neuausrichtung des Foerdergeschaefts. AUSRICHTUNG DER DEMO: Zielpublikum sind vor allem UPPER MANAGEMENT (Vorstandsumfeld) und Mitarbeitende aus AUSLANDSBUEROS; das Umfeld ist stark IT-lastig (Microsoft/Entra/Defender, VPN/Remote-Access, internationale Zeitzonen). Waehle EINEN glaubwuerdigen Aufhaenger passend zur Zielperson: (a) IT/IAM: VPN-/MFA-Neuregistrierung, 'ungewoehnliche Anmeldung aus <Land>', Konto bis Fristende bestaetigen; (b) Auslandsbuero/Remote: Reise-/Visums-/Reisekostenfreigabe der Reisestelle, Bestaetigung einer lokalen Zahlung eines Laenderbueros, Zugriff aus dem Ausland verifizieren; (c) Upper Management: CEO-/Vorstands-Fraud (dringende, vertrauliche Zahlungs-/Freigabeanweisung 'im Auftrag des Vorstands'), vertrauliche M&A-/Beteiligungsunterlagen zum 'Datenraum', Termin/Unterlagen zur naechsten Vorstands-/Verwaltungsratssitzung. Beispielhafte Auslandsstandorte: London, Paris, New York, Sao Paulo, Mumbai, Singapur, Abu Dhabi, Johannesburg, Istanbul, Mexiko-Stadt.",
       "eingesetzte_tools": [
-        "Microsoft 365",
-        "Microsoft Entra ID",
+        "Microsoft 365 (Outlook, Teams, SharePoint, OneDrive)",
+        "Microsoft Entra ID (Identity & Access Management, MFA/Conditional Access)",
         "Microsoft Defender XDR",
         "Microsoft Defender for Identity",
         "Zero-Trust-Architektur",
-        "SIEM/SOC"
+        "SIEM/SOC",
+        "VPN / Remote-Access für Außenbüros und mobiles Arbeiten",
+        "Citrix / Virtual Desktop (Remote-Arbeitsplätze)",
+        "SAP (Finanz-/Rechnungswesen)",
+        "ServiceNow (IT-Service-Management / Ticket)",
+        "Confluence / Jira (agile Zusammenarbeit)"
       ],
-      "aktuelle_nachricht": "Die Abteilung IT-Security modernisiert das Identity & Access Management: Rollout von Microsoft Defender for Identity und Migration der Entra-ID-Konten auf neue Sicherheitsrichtlinien. Parallel treibt die KfW ihre agile digitale Transformation als Förderbank voran.",
+      "auslandsbueros": {
+        "hinweis": "KfW-Konzern ist weltweit personell vertreten. Beispielhafte internationale Standorte (öffentlich):",
+        "kfw_ipex_bank": [
+          "London",
+          "Paris",
+          "New York",
+          "São Paulo",
+          "Mumbai",
+          "Singapur",
+          "Abu Dhabi",
+          "Johannesburg",
+          "Istanbul",
+          "Mexiko-Stadt"
+        ],
+        "kfw_entwicklungsbank_deg": "Länder-/Regionalbüros in Afrika, Asien, Lateinamerika und Südost-/Osteuropa"
+      },
+      "zielgruppen": [
+        {
+          "gruppe": "Upper Management / Vorstandsumfeld",
+          "pretext_ideen": [
+            "CEO-/Vorstands-Fraud: dringende, vertrauliche Zahlungs- oder Freigabeanweisung 'im Auftrag des Vorstands'",
+            "Vertrauliche M&A-/Beteiligungsunterlagen zur kurzfristigen Durchsicht (Link zum 'Datenraum')",
+            "Terminbestätigung / Unterlagen zur nächsten Vorstands- bzw. Verwaltungsratssitzung",
+            "Assistenz-Anschreiben im Namen einer Vorständin/eines Vorstands mit Handlungsdruck"
+          ]
+        },
+        {
+          "gruppe": "Auslandsbüros / international tätige Mitarbeitende",
+          "pretext_ideen": [
+            "VPN-/MFA-Neuregistrierung, weil 'Zugriff aus dem Ausland' angeblich verifiziert werden muss",
+            "IT-Support: 'ungewöhnliche Anmeldung aus <Land>' – Konto bis Fristende bestätigen",
+            "Reise-/Visums- oder Reisekostenfreigabe der Reisestelle mit Zeitzonen-Dringlichkeit",
+            "Bestätigung einer lokalen Zahlung/Überweisung eines Länderbüros (Projektfinanzierung)"
+          ]
+        }
+      ],
       "gespoofter_absender": "KfW IT-Security & IAM <it-security@kfw-sicherheitsportal.de>",
+      "absender_varianten": [
+        "KfW IT-Security & IAM <it-security@kfw-sicherheitsportal.de>",
+        "KfW Service Desk <servicedesk@kfw-support-portal.de>",
+        "Vorstandsbüro KfW <vorstandsbuero@kfw-intern.de>",
+        "KfW Reisestelle <reise@kfw-travelservice.de>",
+        "KfW IPEX-Bank IT <it@kfw-ipex-secure.de>"
+      ],
       "fuehrung": [
-        { "name": "Stefan Wintels", "funktion": "Vorstandsvorsitzender, u. a. Konzernsteuerung" },
-        { "name": "Melanie Kehr", "funktion": "Vorstand, u. a. Informationstechnologie und Operations, inländisches Fördergeschäft" },
-        { "name": "Bernd Loewen", "funktion": "Vorstand, u. a. Rechnungswesen, Organisation und Personal" },
-        { "name": "Dr. Stefan Peiß", "funktion": "Vorstand, u. a. Risikomanagement und -controlling" },
-        { "name": "Brigitte Réthier", "funktion": "Vorstand, u. a. Internationale Finanzielle Zusammenarbeit" }
-      ]
+        {
+          "name": "Stefan Wintels",
+          "funktion": "Vorstandsvorsitzender, u. a. Konzernsteuerung"
+        },
+        {
+          "name": "Melanie Kehr",
+          "funktion": "Vorstand, u. a. Informationstechnologie und Operations sowie inländisches Fördergeschäft"
+        },
+        {
+          "name": "Bernd Loewen",
+          "funktion": "Vorstand, u. a. Rechnungswesen, Organisation und Personal"
+        },
+        {
+          "name": "Dr. Stefan Peiß",
+          "funktion": "Vorstand, u. a. Risikomanagement und -controlling"
+        },
+        {
+          "name": "Brigitte Réthier",
+          "funktion": "Vorstand, u. a. Internationale Finanzielle Zusammenarbeit"
+        }
+      ],
+      "kontext": "Publikum der Demo ist überwiegend Upper Management und Mitarbeitende aus Auslandsbüros; das Umfeld ist stark IT-lastig (Microsoft-/Entra-/Defender-Stack, Remote-Arbeit, internationale Zeitzonen). Die erzeugte Spear-Phishing-Beispielmail soll genau diese Realität treffen – also entweder einen glaubwürdigen IT-/IAM-Pretext oder einen rollenspezifischen Aufhänger (Vorstand/Autorität bzw. Auslandsbüro/Remote-Zugang) nutzen."
     }
   ]
 }
