@@ -1,0 +1,101 @@
+{
+  "_hinweis": "Nur oeffentlich einsehbare Daten. Das Standard-Skript liest: name, branche, standort, eingesetzte_tools, aktuelle_nachricht, gespoofter_absender, fuehrung. Die ZIELGRUPPENGERECHTE Steuerung (keine IT-Fachmails fuer Nicht-ITler) ist in 'aktuelle_nachricht' und 'gespoofter_absender' eingearbeitet und wirkt OHNE Code-Aenderung. Look-alike-Absender/Domains sind bewusst gefaelscht (NICHT kfw.de). Nur fuer autorisierte Awareness-Demo mit Einwilligung.",
+  "companies": [
+    {
+      "name": "KfW (Kreditanstalt für Wiederaufbau)",
+      "domain": "kfw.de",
+      "branche": "Förderbank / Finanzwesen (öffentlich-rechtlich, stark reguliert; Bankengruppe mit KfW IPEX-Bank, KfW Entwicklungsbank und DEG)",
+      "standort": "Frankfurt am Main (Hauptsitz), Berlin, Bonn – weltweit vertreten über Außenbüros/Repräsentanzen",
+      "unternehmensprofil": "Größte nationale Förderbank; finanziert im Auftrag von Bund und Ländern Vorhaben in Wirtschaft, Bauen/Wohnen, Bildung, Umwelt/Klima sowie internationale Entwicklungs- und Projektfinanzierung. Keine Filialen, keine Endkundeneinlagen – Refinanzierung über den Kapitalmarkt.",
+      "aktuelle_themen": [
+        "KfW richtet ihr Fördergeschäft strategisch neu aus (Jahresauftakt-Pressekonferenz)",
+        "Refinanzierungsziel 2026 auf rund 80–85 Mrd. EUR erhöht",
+        "Starkes erstes Halbjahr 2026 / Rekordwachstum im Kerngeschäft",
+        "Green Bonds über Erwartungen; Digitalisierung der Refinanzierung schreitet voran",
+        "IT-Security & IAM-Modernisierung: Rollout Microsoft Defender for Identity, Migration der Entra-ID-Konten auf neue Sicherheitsrichtlinien",
+        "Agile digitale Transformation der Bank-IT (moderne Infrastruktur, Cloud, Automatisierung)"
+      ],
+      "aktuelle_nachricht": "PERSONALISIERUNG AUS DEM PROFIL (ZUERST und WICHTIG): Nutze die eingefuegten LinkedIn-Daten KORREKT und ausschliesslich das, was dort steht – erfinde nichts dazu. Verwende (1) den echten VORNAMEN fuer die Anrede und fuer das Feld 'an'; (2) die EXAKTE aktuelle Position/den Titel sowie Abteilung/Bereich; (3) Arbeitgeber und Standort; (4) – falls vorhanden – konkrete Anker wie Team, Projekte, Schwerpunkte/Skills, Zertifikate oder einen kuerzlichen Rollen-/Standortwechsel, um die Mail glaubwuerdig auf genau diese Person zuzuschneiden. Wenn ein Detail NICHT im Profil steht, lass es weg (keine erfundenen Namen, Titel, Vorgesetzten oder Projekte). Die Wahl des Aufhaengers und der Fachsprache richtet sich nach der im Profil erkennbaren ROLLE (siehe unten).\n\nWICHTIG – ZIELGRUPPENGERECHT SCHREIBEN: Bestimme ZUERST aus dem Profil, ob die Zielperson in der IT bzw. IT-Security/Cloud/Identity arbeitet.\n• Wenn NEIN (Fachbereich, Management, Verwaltung, Vertrieb, Auslandsbuero ohne IT-Rolle): Verwende KEINE IT-Fachsprache. Verboten sind Begriffe wie MDI, Microsoft Defender for Identity, Entra ID, SOC, XDR, Conditional Access, SIEM, Zero Trust. Schreibe allgemeinverstaendlich und waehle einen ALLTAEGLICHEN Aufhaenger, z. B.: Gehaltsabrechnung/Personalabteilung, Reisekosten-/Reisefreigabe oder Visum, Urlaubs-/Abwesenheitsantrag, Rechnungs-/Dokumentfreigabe, ein geteiltes Dokument/Postfach ist fast voll/Nachricht in Quarantaene, oder eine Anweisung aus dem Management/Vorstandsbuero. Als Absender passend dazu (NICHT das SOC/Security-Team), z. B. Personalabteilung, Reisestelle, Vorstandsbuero, Rechnungswesen oder ein neutraler 'IT-Service-Desk'.\n• Wenn JA (klar IT/Security): Technische Pretexts sind erlaubt (z. B. VPN-/MFA-Neuregistrierung, Konto-Migration, Defender/Entra, 'ungewoehnliche Anmeldung').\nFUER ALLE verstaendlich sind nur Outlook / Microsoft 365 / Teams – ohne tiefe Fachbegriffe. AKTUELLER REALER KONTEXT (nur bei IT-Zielpersonen technisch ausspielen; sonst hoechstens als allgemeiner Anlass): laufende Sicherheits-/IAM-Modernisierung, Rekord-Halbjahr 2026, Neuausrichtung des Foerdergeschaefts. Zielpublikum insgesamt: vor allem Upper Management und Mitarbeitende aus Auslandsbueros (international, Zeitzonen).",
+      "eingesetzte_tools": [
+        "Microsoft 365 (Outlook, Teams, SharePoint, OneDrive)",
+        "Microsoft Entra ID (Identity & Access Management, MFA/Conditional Access)",
+        "Microsoft Defender XDR",
+        "Microsoft Defender for Identity",
+        "Zero-Trust-Architektur",
+        "SIEM/SOC",
+        "VPN / Remote-Access für Außenbüros und mobiles Arbeiten",
+        "Citrix / Virtual Desktop (Remote-Arbeitsplätze)",
+        "SAP (Finanz-/Rechnungswesen)",
+        "ServiceNow (IT-Service-Management / Ticket)",
+        "Confluence / Jira (agile Zusammenarbeit)"
+      ],
+      "auslandsbueros": {
+        "hinweis": "KfW-Konzern ist weltweit personell vertreten. Beispielhafte internationale Standorte (öffentlich):",
+        "kfw_ipex_bank": [
+          "London",
+          "Paris",
+          "New York",
+          "São Paulo",
+          "Mumbai",
+          "Singapur",
+          "Abu Dhabi",
+          "Johannesburg",
+          "Istanbul",
+          "Mexiko-Stadt"
+        ],
+        "kfw_entwicklungsbank_deg": "Länder-/Regionalbüros in Afrika, Asien, Lateinamerika und Südost-/Osteuropa"
+      },
+      "zielgruppen": [
+        {
+          "gruppe": "Upper Management / Vorstandsumfeld",
+          "pretext_ideen": [
+            "CEO-/Vorstands-Fraud: dringende, vertrauliche Zahlungs- oder Freigabeanweisung 'im Auftrag des Vorstands'",
+            "Vertrauliche M&A-/Beteiligungsunterlagen zur kurzfristigen Durchsicht (Link zum 'Datenraum')",
+            "Terminbestätigung / Unterlagen zur nächsten Vorstands- bzw. Verwaltungsratssitzung",
+            "Assistenz-Anschreiben im Namen einer Vorständin/eines Vorstands mit Handlungsdruck"
+          ]
+        },
+        {
+          "gruppe": "Auslandsbüros / international tätige Mitarbeitende",
+          "pretext_ideen": [
+            "VPN-/MFA-Neuregistrierung, weil 'Zugriff aus dem Ausland' angeblich verifiziert werden muss",
+            "IT-Support: 'ungewöhnliche Anmeldung aus <Land>' – Konto bis Fristende bestätigen",
+            "Reise-/Visums- oder Reisekostenfreigabe der Reisestelle mit Zeitzonen-Dringlichkeit",
+            "Bestätigung einer lokalen Zahlung/Überweisung eines Länderbüros (Projektfinanzierung)"
+          ]
+        }
+      ],
+      "gespoofter_absender": "Absender PASSEND zum gewaehlten Pretext und zur Rolle waehlen (NICHT immer IT-Security/SOC!): bei Nicht-IT z. B. 'KfW Personalabteilung', 'KfW Reisestelle', 'KfW Vorstandsbuero', 'KfW Rechnungswesen' oder 'KfW Service Desk'; nur bei IT-Rollen 'KfW IT-Security'. Immer eine OFFENSICHTLICH gefaelschte Look-alike-Domain verwenden (NICHT kfw.de), z. B. @kfw-serviceportal.de, @kfw-hr-portal.de, @kfw-travelservice.de.",
+      "absender_varianten": [
+        "KfW IT-Security & IAM <it-security@kfw-sicherheitsportal.de>",
+        "KfW Service Desk <servicedesk@kfw-support-portal.de>",
+        "Vorstandsbüro KfW <vorstandsbuero@kfw-intern.de>",
+        "KfW Reisestelle <reise@kfw-travelservice.de>",
+        "KfW IPEX-Bank IT <it@kfw-ipex-secure.de>"
+      ],
+      "fuehrung": [
+        {
+          "name": "Stefan Wintels",
+          "funktion": "Vorstandsvorsitzender, u. a. Konzernsteuerung"
+        },
+        {
+          "name": "Melanie Kehr",
+          "funktion": "Vorstand, u. a. Informationstechnologie und Operations sowie inländisches Fördergeschäft"
+        },
+        {
+          "name": "Bernd Loewen",
+          "funktion": "Vorstand, u. a. Rechnungswesen, Organisation und Personal"
+        },
+        {
+          "name": "Dr. Stefan Peiß",
+          "funktion": "Vorstand, u. a. Risikomanagement und -controlling"
+        },
+        {
+          "name": "Brigitte Réthier",
+          "funktion": "Vorstand, u. a. Internationale Finanzielle Zusammenarbeit"
+        }
+      ],
+      "kontext": "Publikum der Demo ist überwiegend Upper Management und Mitarbeitende aus Auslandsbüros; das Umfeld ist stark IT-lastig (Microsoft-/Entra-/Defender-Stack, Remote-Arbeit, internationale Zeitzonen). Die erzeugte Spear-Phishing-Beispielmail soll genau diese Realität treffen – also entweder einen glaubwürdigen IT-/IAM-Pretext oder einen rollenspezifischen Aufhänger (Vorstand/Autorität bzw. Auslandsbüro/Remote-Zugang) nutzen."
+    }
+  ]
+}
